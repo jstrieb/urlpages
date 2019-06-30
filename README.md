@@ -17,7 +17,7 @@
 - No commitment
 - Less than 200 total lines of clear, well-documented HTML, CSS, and JavaScript
 
-Read the Hacker News Discussion [here]()
+Read the Hacker News Discussion [here](https://news.ycombinator.com/item?id=20317840)
 
 
 ## How it works
