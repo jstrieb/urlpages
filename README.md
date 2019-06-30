@@ -37,6 +37,8 @@ The obvious downside of URL Pages is that the links get very long very quickly. 
 
 ## Disclaimer
 
+This just becomes a toy if I am the only one hosting a running version of this repository. If you believe it has real potential, clone it or fork your own version that addresses any non-fundamental problems you have with it, and host your own. The only way this actually becomes robust is if there is no single point of failure (i.e. my GitHub Pages)
+
 Web pages in URLs are definitely not how things on the web were meant to be done, so don't be surprised if trying to use URL Pages causes unexpected issues. For example, sharing these links may cause chat programs, email clients, and unsuspecting individuals to get confused, raise exceptions, or complain. Likewise, copy-pasting these links may take a long time, if it works at all. I've also noticed my browser running a little hotter while I've got 5MB links in the URL bar.
 
 Furthermore, URL Pages is very much a proof of concept, and should not be relied upon for anything consequential.
