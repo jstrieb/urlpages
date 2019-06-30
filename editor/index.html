@@ -32,6 +32,20 @@ iframe {
 textarea, iframe {
   border: 0.5px solid;
 }
+
+a, button {
+  background: black;
+  color: limegreen;
+  text-decoration: none;
+  padding: 2px 5px;
+  border: none;
+}
+
+#buttons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 </style>
 
 <script type="text/javascript">
@@ -52,17 +66,8 @@ function initialize() {
 }
 
 
-/* Run each time a key is pressed on a text box */
-function update() {
-  var data = {
-    "css" : document.getElementById("css").value,
-    "js" : document.getElementById("javascript").value,
-    "html" : document.getElementById("html").value
-  };
-
-  // Save page data to the URL
-  window.location.hash = "#" + window.btoa(JSON.stringify(data));
-
+/* Return the HTML string for the page */
+function getHTML(data) {
   // Generate an HTML page from the contents of each <textarea>
   var pageData =
 `
@@ -82,8 +87,34 @@ ${data["html"]}
 </body>
 `;
 
+  return pageData;
+}
+
+
+/* Return a link to view the page */
+function getViewLink(pageData) {
+  return `../#${window.btoa(encodeURIComponent(pageData))}`
+}
+
+
+/* Run each time a key is pressed on a text box */
+function update() {
+  var data = {
+    "css" : document.getElementById("css").value,
+    "js" : document.getElementById("javascript").value,
+    "html" : document.getElementById("html").value
+  };
+
+  var html = getHTML(data);
+
+  // Save encoded page data to the URL
+  window.location.hash = "#" + window.btoa(JSON.stringify(data));
+
+  // Update the URL for the "Get Link" button
+  document.getElementById("getLinkLink").href = getViewLink(html);
+
   // Update the <iframe> to display the generated page
-  window.frames[0].location.replace(`data:text/html,${encodeURIComponent(pageData)}`);
+  window.frames[0].location.replace(`data:text/html,${encodeURIComponent(html)}`);
 }
 </script>
 </head>
@@ -92,6 +123,10 @@ ${data["html"]}
 <div id="textboxes" onkeyup="update()">
 <!-- Unfortunately having these <textarea>s on one line is actually necessary to remove a tiny amount of horizontal space between them -->
 <textarea id="html" placeholder="HTML" rows="9"></textarea><textarea id="css" placeholder="CSS" rows="9"></textarea><textarea id="javascript" placeholder="JavaScript" rows="9"></textarea>
+</div>
+
+<div id="buttons">
+  <button><a id="getLinkLink" href="" target="_blank">Get Link</a></button>
 </div>
 
 <iframe></iframe>
