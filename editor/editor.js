@@ -28,7 +28,8 @@ ${data["css"]}
 <script type="text/javascript">
 ${data["js"]}
 </scr` +
-// This has to be broken up because otherwise it is recognized as the main document's end script tag
+// This has to be broken up because otherwise it is recognized as the main
+// document's end script tag
 `ipt>
 </head>
 <body>
@@ -64,4 +65,17 @@ function update() {
 
   // Update the <iframe> to display the generated page
   window.frames[0].location.replace(`data:text/html,${encodeURIComponent(html)}`);
+}
+
+/* Show a prompt with the HTML so the user can copy the code */
+function showCopyCodePrompt() {
+  var data = {
+    "css" : document.getElementById("css").value,
+    "js" : document.getElementById("javascript").value,
+    "html" : document.getElementById("html").value
+  };
+
+  var html = getHTML(data);
+
+  window.prompt("Copy to clipboard: ", html)
 }
