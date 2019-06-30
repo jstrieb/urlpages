@@ -14,6 +14,12 @@
 </div>
 
 <div id="buttons">
+  <!-- Seemingly random attributes necessary for TinyUrl to accept the request -->
+  <form action="http://tinyurl.com/create.php" method="get" target="_blank">
+		<input type="hidden" id="source" name="source" value="indexpage">
+		<input type="hidden" name="url" id="url" />
+    <button>Get Short Link</button>
+  </form>
   <button><a id="getLinkLink" href="" target="_blank">Get Link</a></button>
   <button onclick="showCopyCodePrompt()">Copy Code</button>
   <button><a id="downloadLink" href="" target="_blank" download="export.html">Download Code</a></button>
