@@ -17,10 +17,12 @@
 - No commitment
 - Less than 200 total lines of clear, well-documented HTML, CSS, and JavaScript
 
+Read the Hacker News Discussion [here]()
+
 
 ## How it works
 
-As hinted by its name, URL Pages works by storing the entire contents of a web page in the URL. 
+As hinted by its name, URL Pages works by storing the entire contents of a web page in the URL.
 
 Thus, as long as the URL exists, so does the page it points to. The rest of the URL Pages program is responsible for translating between web page code (HTML/CSS/JavaScript) and an "encoded" URL.
 
@@ -43,7 +45,7 @@ Web pages in URLs are definitely not how things on the web were meant to be done
 
 Furthermore, URL Pages is very much a proof of concept, and should not be relied upon for anything consequential.
 
-Read the code and understand it before using so that you understand any associated risks. The codebase was written with readers in-mind. Since the codebase is intentionally short, it can be read and digested fairly quickly if you have prior experience with client-side web applications. 
+Read the code and understand it before using so that you understand any associated risks. The codebase was written with readers in-mind. Since the codebase is intentionally short, it can be read and digested fairly quickly if you have prior experience with client-side web applications.
 
 I originally conceived this as a simple, static CodePen clone, but I felt the "publishing" of pages as URLs was an interesting idea. So I decided to present that aspect of it front and center, even though it wasn't really the point of the project at the beginning. About a year ago, I had a proof of concept version that I ended up using fairly frequently for sharing quick HTML/CSS/JavaScript experiments (never as a means of seriously publishing and sharing censorship-proof content). I found that if its use is limited to that case, it is actually very handy and robust!
 
@@ -79,3 +81,5 @@ The bookmarklet enables some of the most interesting and promising opportunities
 - Figure out and publish max URL sizes for various URL shorteners
 - Add features
 - Add option to "publish" pages using base65536 as suggested [here](https://github.com/jstrieb/urlpages/issues/5)
+- Allow users to sign/password protect published URLs
+- Upload examples of multi-page sites (tree hierarchy) and embedded images
