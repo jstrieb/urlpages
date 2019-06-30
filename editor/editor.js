@@ -43,7 +43,7 @@ ${data["html"]}
 
 /* Return a link to view the page */
 function getViewLink(pageData) {
-  return `../#${window.btoa(pageData)}`;
+  return `http://jstrieb.github.io/urlpages/#${window.btoa(pageData)}`;
 }
 
 
@@ -62,6 +62,9 @@ function update() {
 
   // Update the URL for the "Get Link" button
   document.getElementById("getLinkLink").href = getViewLink(html);
+
+	// Update the URL for the "Short Link" button
+  document.getElementById("url").value = getViewLink(html);
 
   // Update the download link
   document.getElementById("downloadLink").href = `data:text/html,${html}`
