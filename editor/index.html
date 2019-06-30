@@ -13,10 +13,15 @@ html, body {
   height: 100%;
 }
 
+#textboxes {
+  height: 40%;
+  width: 100%;
+}
+
 textarea {
   resize: none;
   width: 33.3333%;
-  height: 40%;
+  height: 100%;
 }
 
 iframe {
@@ -28,11 +33,35 @@ textarea, iframe {
   border: 0.5px solid;
 }
 </style>
+<script type="text/javascript">
+function update() {
+  var pageData =
+`
+<!DOCTYPE html>
+<head>
+<style>
+${document.getElementById("css").value}
+</style>
+<script type="text/javascript">
+${document.getElementById("javascript").value}
+</` +
+// TODO: Figure out how to avoid breaking this up
+`script>
+</head>
+<body>
+${document.getElementById("html").value}
+</body>
+`;
+  window.frames[0].location.replace(`data:text/html,${encodeURIComponent(pageData)}`);
+}
+</script>
 </head>
 
 <body>
-<!-- Unfortunately having these on one line is actually necessary to remove a tiny amount of space between them -->
+<div id="textboxes" onkeyup="update()">
+<!-- Unfortunately having these <textarea>s on one line is actually necessary to remove a tiny amount of horizontal space between them -->
 <textarea id="html" placeholder="HTML" rows="9"></textarea><textarea id="css" placeholder="CSS" rows="9"></textarea><textarea id="javascript" placeholder="JavaScript" rows="9"></textarea>
+</div>
 
 <iframe id="display"></iframe>
 </body>
