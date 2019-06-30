@@ -115,7 +115,7 @@ function update() {
   var html = encodeURIComponent(getHTML(data));
 
   // Save encoded page data to the URL
-  window.location.hash = "#" + window.btoa(JSON.stringify(data));
+  history.replaceState({}, "", "/urlpages/editor/#" + window.btoa(JSON.stringify(data)));
 
   // Update the URL for the "Get Link" button
   document.getElementById("getLinkLink").href = getViewLink(html);
