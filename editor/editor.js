@@ -1,19 +1,13 @@
-/* Run once when the page is loaded */
-function initialize() {
-  // Get page data from the URL and load it into the boxes
-  if (window.location.hash) {
-    var b64  = window.location.hash.slice(1);
-    var json = window.atob(b64);
-    var data = JSON.parse(json);
+/**
+ * editor/editor.js: the main code that runs what is referred to as the "editor"
+ * in the documentation
+ */
 
-    document.getElementById("css").value = data["css"];
-    document.getElementById("javascript").value = data["js"];
-    document.getElementById("html").value = data["html"];
-  }
 
-  update();
-}
 
+/***
+ * Helper functions
+ ***/
 
 /* Return the HTML string for the page */
 function getHTML(data) {
@@ -47,28 +41,10 @@ function getViewLink(pageData) {
 }
 
 
-/* Run each time a key is pressed on a text box */
-function update() {
-  var data = {
-    "css" : document.getElementById("css").value,
-    "js" : document.getElementById("javascript").value,
-    "html" : document.getElementById("html").value
-  };
 
-  var html = encodeURIComponent(getHTML(data));
-
-  // Save encoded page data to the URL
-  window.location.hash = "#" + window.btoa(JSON.stringify(data));
-
-  // Update the URL for the "Get Link" button
-  document.getElementById("getLinkLink").href = getViewLink(html);
-
-  // Update the download link
-  document.getElementById("downloadLink").href = `data:text/html,${html}`
-
-  // Update the <iframe> to display the generated page
-  window.frames[0].location.replace(`data:text/html,${html}`);
-}
+/***
+ * Button press functions
+ ***/
 
 
 /* Set the TinyUrl form hidden 'url' field to the view URL */
@@ -103,4 +79,50 @@ function showCopyCodePrompt() {
   var html = getHTML(data);
 
   window.prompt("Copy to clipboard: ", html)
+}
+
+
+
+/***
+ * Main procedure functions
+ ***/
+
+/* Run once when the page is loaded */
+function initialize() {
+  // Get page data from the URL and load it into the boxes
+  if (window.location.hash) {
+    var b64  = window.location.hash.slice(1);
+    var json = window.atob(b64);
+    var data = JSON.parse(json);
+
+    document.getElementById("css").value = data["css"];
+    document.getElementById("javascript").value = data["js"];
+    document.getElementById("html").value = data["html"];
+  }
+
+  update();
+}
+
+
+/* Run each time a key is pressed on a text box */
+function update() {
+  var data = {
+    "css" : document.getElementById("css").value,
+    "js" : document.getElementById("javascript").value,
+    "html" : document.getElementById("html").value
+  };
+
+  var html = encodeURIComponent(getHTML(data));
+
+  // Save encoded page data to the URL
+  window.location.hash = "#" + window.btoa(JSON.stringify(data));
+
+  // Update the URL for the "Get Link" button
+  document.getElementById("getLinkLink").href = getViewLink(html);
+
+  // Update the download link
+  document.getElementById("downloadLink").href = `data:text/html,${html}`
+
+  // Update the <iframe> to display the generated page
+  window.frames[0].location.replace(`data:text/html,${html}`);
 }
