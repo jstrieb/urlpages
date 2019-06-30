@@ -43,7 +43,7 @@ ${data["html"]}
 
 /* Return a link to view the page */
 function getViewLink(pageData) {
-  return `../#${window.btoa(encodeURIComponent(pageData))}`;
+  return `../#${window.btoa(pageData)}`;
 }
 
 
@@ -55,7 +55,7 @@ function update() {
     "html" : document.getElementById("html").value
   };
 
-  var html = getHTML(data);
+  var html = encodeURIComponent(getHTML(data));
 
   // Save encoded page data to the URL
   window.location.hash = "#" + window.btoa(JSON.stringify(data));
@@ -63,8 +63,11 @@ function update() {
   // Update the URL for the "Get Link" button
   document.getElementById("getLinkLink").href = getViewLink(html);
 
+  // Update the download link
+  document.getElementById("downloadLink").href = `data:text/html,${html}`
+
   // Update the <iframe> to display the generated page
-  window.frames[0].location.replace(`data:text/html,${encodeURIComponent(html)}`);
+  window.frames[0].location.replace(`data:text/html,${html}`);
 }
 
 /* Show a prompt with the HTML so the user can copy the code */
