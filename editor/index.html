@@ -33,36 +33,67 @@ textarea, iframe {
   border: 0.5px solid;
 }
 </style>
+
 <script type="text/javascript">
+/* Run once when the page is loaded */
+function initialize() {
+  // Get page data from the URL and load it into the boxes
+  if (window.location.hash) {
+    var b64  = window.location.hash.slice(1);
+    var json = window.atob(b64);
+    var data = JSON.parse(json);
+
+    document.getElementById("css").value = data["css"];
+    document.getElementById("javascript").value = data["js"];
+    document.getElementById("html").value = data["html"];
+  }
+
+  update();
+}
+
+
+/* Run each time a key is pressed on a text box */
 function update() {
+  var data = {
+    "css" : document.getElementById("css").value,
+    "js" : document.getElementById("javascript").value,
+    "html" : document.getElementById("html").value
+  };
+
+  // Save page data to the URL
+  window.location.hash = "#" + window.btoa(JSON.stringify(data));
+
+  // Generate an HTML page from the contents of each <textarea>
   var pageData =
 `
 <!DOCTYPE html>
 <head>
 <style>
-${document.getElementById("css").value}
+${data["css"]}
 </style>
 <script type="text/javascript">
-${document.getElementById("javascript").value}
-</` +
-// TODO: Figure out how to avoid breaking this up
-`script>
+${data["js"]}
+</scr` +
+// This has to be broken up because otherwise it is recognized as the main document's end script tag
+`ipt>
 </head>
 <body>
-${document.getElementById("html").value}
+${data["html"]}
 </body>
 `;
+
+  // Update the <iframe> to display the generated page
   window.frames[0].location.replace(`data:text/html,${encodeURIComponent(pageData)}`);
 }
 </script>
 </head>
 
-<body>
+<body onload="initialize()">
 <div id="textboxes" onkeyup="update()">
 <!-- Unfortunately having these <textarea>s on one line is actually necessary to remove a tiny amount of horizontal space between them -->
 <textarea id="html" placeholder="HTML" rows="9"></textarea><textarea id="css" placeholder="CSS" rows="9"></textarea><textarea id="javascript" placeholder="JavaScript" rows="9"></textarea>
 </div>
 
-<iframe id="display"></iframe>
+<iframe></iframe>
 </body>
 </html>
