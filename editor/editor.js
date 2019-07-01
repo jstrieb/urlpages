@@ -9,6 +9,20 @@
  * Helper functions
  ***/
 
+/* Encoding UTF8 ⇢ base64: https://stackoverflow.com/questions/30106476/using-javascripts-atob-to-decode-base64-doesnt-properly-decode-utf-8-strings */
+function b64EncodeUnicode(str) {
+  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
+    return String.fromCharCode(parseInt(p1, 16))
+  }))
+}
+
+/* Decoding base64 ⇢ UTF8: https://stackoverflow.com/questions/30106476/using-javascripts-atob-to-decode-base64-doesnt-properly-decode-utf-8-strings */
+function b64DecodeUnicode(str) {
+  return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
+    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+  }).join(''))
+}
+
 /* Return the HTML string for the page */
 function getHTML(data) {
   // Generate an HTML page from the contents of each <textarea>
@@ -37,7 +51,7 @@ ${data["html"]}
 
 /* Return a link to view the page */
 function getViewLink(pageData) {
-  return `http://jstrieb.github.io/urlpages/#${window.btoa(pageData)}`;
+  return `http://jstrieb.github.io/urlpages/#${b64EncodeUnicode(pageData)}`;
 }
 
 
@@ -92,7 +106,7 @@ function initialize() {
   // Get page data from the URL and load it into the boxes
   if (window.location.hash) {
     var b64  = window.location.hash.slice(1);
-    var json = window.atob(b64);
+    var json = b64DecodeUnicode(b64);
     var data = JSON.parse(json);
 
     document.getElementById("css").value = data["css"];
@@ -115,7 +129,7 @@ function update() {
   var html = encodeURIComponent(getHTML(data));
 
   // Save encoded page data to the URL
-  window.location.hash = "#" + window.btoa(JSON.stringify(data));
+  window.location.hash = "#" + b64EncodeUnicode(JSON.stringify(data));
 
   // Update the URL for the "Get Link" button
   document.getElementById("getLinkLink").href = getViewLink(html);
@@ -124,5 +138,6 @@ function update() {
   document.getElementById("downloadLink").href = `data:text/html,${html}`
 
   // Update the <iframe> to display the generated page
+  // Todo: Update with a > 8-bit safe solution for updates 
   window.frames[0].location.replace(`data:text/html,${html}`);
 }
