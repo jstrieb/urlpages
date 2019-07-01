@@ -9,7 +9,7 @@ That you can share anywhere.
 It doesn't aim to be much, but you might find a couple of features interesting:
 
 1.  Your entire pen is stored in the URL you share. Nothing is hosted anywhere.
-2.  We pull front page posts from Twitter (tweet to [@HTMLPins](https://twitter.com/intent/tweet?text=I made this! – ( paste a link to your pen here )&hashtags=jspen)), and use url shortners for share links.
+2.  We pull front page posts from Twitter (tweet to [@HTMLPins](https://twitter.com/intent/tweet?text=I%20made%20this!%20%E2%80%93%20(%20paste%20a%20link%20to%20your%20pen%20here%20)&hashtags=jspen)), and use url shortners for share links.
 3.  There's no backend at all.
 
   
@@ -22,7 +22,7 @@ Based on a project by [@jstrieb](https://github.com/jstrieb), called [URL Pages]
 
 We curate homepage posts by retweeting posts shared on Twitter with the tag [#jspen](https://twitter.com/search?q=%23jspen).
 
-Show us what you've made. [Tweet to us](https://twitter.com/intent/tweet?text=I made this! – ( paste a link to your pen here )&hashtags=jspen)
+Show us what you've made. [Tweet to us](https://twitter.com/intent/tweet?text=I%20made%20this!%20%E2%80%93%20(%20paste%20a%20link%20to%20your%20pen%20here%20)&hashtags=jspen)
 
 Have fun!
 
