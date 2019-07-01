@@ -58,6 +58,12 @@ I originally conceived this as a simple, static CodePen clone, but I felt the "p
 - Bookmarklet links
     - Code editor [here](http://tinyurl.com/y6rrrlnm)
     - Published version below
+- The entire [editor](http://jstrieb.github.io/urlpages/editor) encoded in the URL [here](https://tinyurl.com/y62y9abz)
+- This GitHub project page [here](https://github.com/jstrieb/urlpages/blob/master/EXAMPLES.md#github-project)
+- A cloned New York Times Article [here](https://github.com/jstrieb/urlpages/blob/master/EXAMPLES.md#new-york-times-article)
+- A page with embedded images (no external image host)
+    - Code [here](https://github.com/jstrieb/urlpages/blob/master/EXAMPLES.md#images-code)
+    - Page [here](https://github.com/jstrieb/urlpages/blob/master/EXAMPLES.md#page-with-embedded-image)
 
 
 ## Bookmarklet
@@ -76,10 +82,10 @@ The bookmarklet enables some of the most interesting and promising opportunities
     - Maybe try embedding images
     - Import all `src`ed scripts directly
 - Test to make sure that everything actually works for other browsers, operating systems, and devices
-- Improve editors beyond simple `textarea` (perhaps integrate Ace or CodeMirror)
+- Improve UI in general and editors beyond simple `textarea` (perhaps integrate Ace or CodeMirror)
 - Make the buttons better/more efficient (don't update `href` on every key press)
 - Figure out and publish max URL sizes for various URL shorteners
-- Add features
+- Implement URL compression using [Brotli](https://en.wikipedia.org/wiki/Brotli) for shorter URLs
 - Add option to "publish" pages using base65536 as suggested [here](https://github.com/jstrieb/urlpages/issues/5)
 - Allow users to sign/password protect published URLs
-- Upload examples of multi-page sites (tree hierarchy) and embedded images
+- Upload examples of multi-page sites (tree hierarchy)
