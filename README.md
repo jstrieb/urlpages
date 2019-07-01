@@ -1,6 +1,35 @@
-# URL Pages
+JSPen creates permanent web pages
+=================================
 
-[jstrieb.github.io/urlpages](http://jstrieb.github.io/urlpages)
+That you can share anywhere.
+----------------------------
+
+  
+
+It doesn't aim to be much, but you might find a couple of features interesting:
+
+1.  Your entire pen is stored in the URL you share. Nothing is hosted anywhere.
+2.  We pull front page posts from Twitter (tweet to [@HTMLPins](https://twitter.com/intent/tweet?text=I made this! – ( paste a link to your pen here )&hashtags=jspen)), and use url shortners for share links.
+3.  There's no backend at all.
+
+  
+
+That means your pens can't be taken down, cost nothing, and once shared, anyone who obtains the URL can modify it (forever).
+
+If this website is taken down, another can take it's place. The code is open-source ([GitHub](https://github.com/kidGodzilla/urlpages)).
+
+Based on a project by [@jstrieb](https://github.com/jstrieb), called [URL Pages](https://jstrieb.github.io/urlpages) ([Source code](https://github.com/jstrieb/urlpages))
+
+We curate homepage posts by retweeting posts shared on Twitter with the tag [#jspen](https://twitter.com/search?q=%23jspen).
+
+Show us what you've made. [Tweet to us](https://twitter.com/intent/tweet?text=I made this! – ( paste a link to your pen here )&hashtags=jspen)
+
+Have fun!
+
+
+
+Original Readme
+=================================
 
 ## About
 
