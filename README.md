@@ -59,11 +59,11 @@ I originally conceived this as a simple, static CodePen clone, but I felt the "p
     - Code editor [here](http://tinyurl.com/y6rrrlnm)
     - Published version below
 - The entire [editor](http://jstrieb.github.io/urlpages/editor) encoded in the URL [here](https://tinyurl.com/y62y9abz)
-- This GitHub project page [here](https://github.com/jstrieb/urlpages/blob/master/EXAMPLES.md#github-project)
-- A cloned New York Times Article [here](https://github.com/jstrieb/urlpages/blob/master/EXAMPLES.md#new-york-times-article)
+- This GitHub project page [here](http://jstrieb.github.io/urlpages/examples/project-page.html)
+- A cloned New York Times Article [here](http://jstrieb.github.io/urlpages/examples/nyt.html)
 - A page with embedded images (no external image host)
-    - Code [here](https://github.com/jstrieb/urlpages/blob/master/EXAMPLES.md#images-code)
-    - Page [here](https://github.com/jstrieb/urlpages/blob/master/EXAMPLES.md#page-with-embedded-image)
+    - Code [here](http://jstrieb.github.io/urlpages/examples/embed-code.html)
+    - Page [here](http://jstrieb.github.io/urlpages/examples/embed-page.html)
 
 
 ## Bookmarklet
