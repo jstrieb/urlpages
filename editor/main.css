@@ -11,6 +11,7 @@ html, body {
 #textboxes {
   height: 40%;
   width: 100%;
+  font-size: 0px;
 }
 
 textarea {
