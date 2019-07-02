@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>URL Pages Editor</title>
-<link rel="stylesheet" type="text/css" href="main.css">
-<script src="editor.js" type="text/javascript"></script>
+<title>Url-Pages</title>
+<meta charset=utf-8>
+<meta http-equiv=X-UA-Compatible content="IE=edge">
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<link rel=stylesheet type=text/css href=main.css>
+<script src=editor.js type=text/javascript></script>
 </head>
-
-<body onload="initialize()">
-<div id="textboxes" onkeyup="update()">
-<textarea id="html" placeholder="HTML" rows="9"></textarea>
-<textarea id="css" placeholder="CSS" rows="9"></textarea>
-<textarea id="javascript" placeholder="JavaScript" rows="9"></textarea>
+<body onload=initialize()>
+<h1 style="background-color:cyan">💻 Url-pages </h1>
+<br />
+<div id=textboxes onkeyup=update()>
+<textarea id=html placeholder=HTML rows=9></textarea>
+<textarea id=css placeholder=CSS rows=9></textarea>
+<textarea id=javascript placeholder=JavaScript rows=9></textarea>
 </div>
-
-<div id="buttons">
-  <!-- Seemingly random attributes necessary for TinyUrl to accept the request -->
-  <form action="http://tinyurl.com/create.php" method="get" target="_blank">
-		<input type="hidden" id="source" name="source" value="indexpage">
-		<input type="hidden" name="url" id="url" />
-    <button onclick="setCodeUrl()">Short Link to Editor</button>
-    <button onclick="setViewUrl()">Short Link to Publish</button>
-  </form>
-  <button><a id="getLinkLink" href="" target="_blank">Long Link to Publish</a></button>
-  <button onclick="showCopyCodePrompt()">Copy Code</button>
-  <button><a id="downloadLink" href="" target="_blank" download="export.html">Download Code</a></button>
+<div id=buttons>
+<form action=http://tinyurl.com/create.php method=get target=_blank>
+<input type=hidden id=source name=source value=indexpage>
+<input type=hidden name=url id=url />
+<button onclick=setCodeUrl()>Short Link to Editor</button>
+<button onclick=setViewUrl()>Short Link to Publish</button>
+</form>
+<button><a id=getLinkLink href target=_blank>Long Link to Publish</a></button>
+<button onclick=showCopyCodePrompt()>Copy Code</button>
+<button><a id=downloadLink href target=_blank download=export.html>Download Code</a></button>
 </div>
-
 <iframe></iframe>
 </body>
 </html>
