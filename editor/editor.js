@@ -8,6 +8,15 @@
  * Helper functions
  ***/
 
+/* Return the data from the textareas */
+function getTextareaData() {
+    return {
+        "css" : document.getElementById("css").value,
+        "js" : document.getElementById("javascript").value,
+        "html" : document.getElementById("html").value
+    };
+}
+
 /* Return the HTML string for the page */
 function getHTML(data) {
     // Generate an HTML page from the contents of each <textarea>
@@ -45,15 +54,10 @@ function getViewLink(pageData) {
 
 /* Set the TinyUrl form hidden 'url' field to the view URL */
 function setViewUrl() {
-    var data = {
-        "css" : document.getElementById("css").value,
-        "js" : document.getElementById("javascript").value,
-        "html" : document.getElementById("html").value
-    };
-    // Replace each instance of certain characters in the HTML data (string)
+    // Replace each instance of certain characters in the HTML page data
     // by one, two, three, or four escape sequences representing the UTF-8
     // encoding of the character
-    var encoded_html = encodeURIComponent(getHTML(data));
+    var encoded_html = encodeURIComponent(getHTML(getTextareaData()));
 	// Update the URL for the "Short Link" button
     document.getElementById("url").value = getViewLink(encoded_html);
 }
@@ -65,13 +69,7 @@ function setCodeUrl() {
 
 /* Show a prompt with the HTML page data so the user can copy the code */
 function showCopyCodePrompt() {
-    var data = {
-        "css" : document.getElementById("css").value,
-        "js" : document.getElementById("javascript").value,
-        "html" : document.getElementById("html").value
-    };
-    var html_data = getHTML(data);
-    window.prompt("Copy to clipboard: ", html_data);
+    window.prompt("Copy to clipboard: ", getHTML(getTextareaData()));
 }
 
 
@@ -81,12 +79,13 @@ function showCopyCodePrompt() {
 
 /* Run once when the page is loaded */
 function initialize() {
-    // Get page data from the URL and load it into the boxes
     if (window.location.hash) { // If there's something after # in the URL
+        // Get page data from the URL
         var b64  = window.location.hash.slice(1); // Get the part after the #
         var json = window.atob(b64); // Decode (base-64) string
         var data = JSON.parse(json); // Construct JS values from string; WARNING: Older browsers might not support this
 
+        // Load URL data into the textareas
         document.getElementById("css").value = data["css"];
         document.getElementById("javascript").value = data["js"];
         document.getElementById("html").value = data["html"];
@@ -97,13 +96,10 @@ function initialize() {
 
 /* Run each time a key is pressed on a text box */
 function update() {
-    var data = {
-        "css" : document.getElementById("css").value,
-        "js" : document.getElementById("javascript").value,
-        "html" : document.getElementById("html").value
-    };
+    // Get data from textareas
+    var data = getTextareaData();
+    // Encode HTML data from textareas into a linkable string
     var encoded_html = encodeURIComponent(getHTML(data));
-    
     // Save encoded page data to the URL
     window.location.hash = "#" + window.btoa(JSON.stringify(data));
     // Update the URL for the "Long Link to Publish" button
