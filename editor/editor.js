@@ -43,9 +43,7 @@ function getHTML(data) {
 
 /* Return a link to view the page */
 function getViewLink(pageData) {
-    // CHANGE: Points to own GitHub page
-    //return `http://jstrieb.github.io/urlpages/#${window.btoa(pageData)}`;
-    return `https://benja-johnny.github.io/urlpages/#${window.btoa(pageData)}`;
+    return `http://jstrieb.github.io/urlpages/#${window.btoa(pageData)}`;
 }
 
 
