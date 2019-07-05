@@ -29,12 +29,14 @@
     <!-- Set TinyUrl "url" field to encoded, shortened URL from "textboxes" data -->
     <button onclick="setViewUrl()">Short Link to Publish</button>
   </form>
-  <!-- Go to URL page (on GitHub) when pressing button -->
+  <!-- Go to URL page (on GitHub) -->
   <button><a id="getLinkLink" href="" target="_blank">Long Link to Publish</a></button>
-  <!-- Show prompt with HTML data (as string) when pressing button -->
+  <!-- Show prompt with HTML -->
   <button onclick="showCopyCodePrompt()">Copy Code</button>
-  <!-- Download .html when pressing button -->
+  <!-- Download .html -->
   <button><a id="downloadLink" href="" target="_blank" download="export.html">Download Code</a></button>
+  <!-- Show prompt for encoded page data input -->
+  <button onclick="showPasteEncodedPrompt()">Encoded Input</button>
 </div>
 
 <!-- Generated page -->

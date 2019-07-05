@@ -44,6 +44,7 @@ function getHTML(data) {
 /* Return a link to view the page */
 function getViewLink(pageData) {
     // CHANGE: Points to own GitHub page
+    //return `http://jstrieb.github.io/urlpages/#${window.btoa(pageData)}`;
     return `https://benja-johnny.github.io/urlpages/#${window.btoa(pageData)}`;
 }
 
@@ -70,6 +71,13 @@ function setCodeUrl() {
 /* Show a prompt with the HTML page data so the user can copy the code */
 function showCopyCodePrompt() {
     window.prompt("Copy to clipboard: ", getHTML(getTextareaData()));
+}
+
+/* Show a prompt for pasting encoded URL data */
+function showPasteEncodedPrompt() {
+    var data = window.prompt("Paste encoded data: ", window.location.hash);
+    if(data) window.location.hash = data; // If OK was clicked, set URL
+    location.reload(false); // Reload page from cache
 }
 
 
