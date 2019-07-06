@@ -4,12 +4,12 @@
 
 <script type="text/javascript">
 if (window.location.hash) {
-  // Try to get page data from the URL if possible
-  var hash = window.location.hash.slice(1);
-  var data = atob(hash);
-  document.write(decodeURIComponent(data));
+    // Try to get page data from the URL if possible
+    var hash = window.location.hash.slice(1); // Get part of URL after "#"
+    var data = atob(hash); // Decode base-64 string URL
+    document.write(decodeURIComponent(data)); // Decode Uniform Resource Identifier (URI) component (previously created by encodeURIComponent) and print it to the page
 } else {
-  // Otherwise redirect to the editor
-  window.location.replace("./editor");
+    // Otherwise redirect to the editor
+    window.location.replace("./editor");
 }
 </script>
