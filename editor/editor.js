@@ -21,23 +21,21 @@ function getTextareaData() {
 function getHTML(data) {
     // Generate an HTML page from the contents of each <textarea>
     var pageData =
-    `
-    <!DOCTYPE html>
-    <head>
-    <style>
-    ${data["css"]}
-    </style>
-    <script type="text/javascript">
-    ${data["js"]}
-    </scr` +
-    // This has to be broken up because otherwise it is recognized as
-    // the main document's end script tag
-    `ipt>
-    </head>
-    <body>
-    ${data["html"]}
-    </body>
-    `;
+`<!DOCTYPE html>
+<head>
+<style>
+${data["css"]}
+</style>
+<script type="text/javascript">
+${data["js"]}
+</scr` +
+// This has to be broken up because otherwise it is recognized as
+// the main document's end script tag
+`ipt>
+</head>
+<body>
+${data["html"]}
+</body>`;
     return pageData;
 }
 
