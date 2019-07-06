@@ -72,8 +72,10 @@ function showCopyCodePrompt() {
 /* Show a prompt for pasting encoded URL data */
 function showPasteEncodedPrompt() {
     var data = window.prompt("Paste encoded data: ", window.location.hash);
-    if(data) window.location.hash = data; // If OK was clicked, set URL
-    location.reload(false); // Reload page from cache
+    if(data) { // If OK was clicked
+        window.location.hash = data; // Set URL
+        location.reload(false); // Reload page from cache
+    }
 }
 
 
