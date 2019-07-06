@@ -2,12 +2,18 @@
 <html>
 <head>
 <title>URL Pages Editor</title>
+<!-- Specify main.css as stylesheet -->
 <link rel="stylesheet" type="text/css" href="main.css">
+<!-- Load editor.js script -->
 <script src="editor.js" type="text/javascript"></script>
 </head>
 
+<!-- Run script when page is loaded -->
 <body onload="initialize()">
+<!-- Update page components when a key is pressed on a text area -->
+<!-- WARNING: "onkeyup="update()"" may not trigger -->
 <div id="textboxes" onkeyup="update()">
+<!-- Create 3 text areas for inputting HTML, CSS and JS -->
 <textarea id="html" placeholder="HTML" rows="9"></textarea>
 <textarea id="css" placeholder="CSS" rows="9"></textarea>
 <textarea id="javascript" placeholder="JavaScript" rows="9"></textarea>
@@ -18,14 +24,22 @@
   <form action="http://tinyurl.com/create.php" method="get" target="_blank">
 		<input type="hidden" id="source" name="source" value="indexpage">
 		<input type="hidden" name="url" id="url" />
-    <button onclick="setCodeUrl()">&#x1F4CE; Editor</button>
-    <button onclick="setViewUrl()">&#x1F4CE; Short</button>
+    <!-- Set TinyUrl "url" field to current page URL -->
+    <button onclick="setCodeUrl()">Short Link to Editor</button>
+    <!-- Set TinyUrl "url" field to encoded, shortened URL from "textboxes" data -->
+    <button onclick="setViewUrl()">Short Link to Publish</button>
   </form>
-  <button><a id="getLinkLink" href="" target="_blank">&#x1F4CE; Long</a></button>
-  <button onclick="showCopyCodePrompt()">&#x1F4CB; code</button>
-  <button><a id="downloadLink" href="" target="_blank" download="export.html">&#x2b07; Code</a></button>
+  <!-- Go to URL page (on GitHub) -->
+  <button><a id="getLinkLink" href="" target="_blank">Long Link to Publish</a></button>
+  <!-- Show prompt with HTML -->
+  <button onclick="showCopyCodePrompt()">Copy Code</button>
+  <!-- Download .html -->
+  <button><a id="downloadLink" href="" target="_blank" download="export.html">Download Code</a></button>
+  <!-- Show prompt for encoded page data input -->
+  <button onclick="showPasteEncodedPrompt()">Encoded Input</button>
 </div>
 
+<!-- Generated page -->
 <iframe></iframe>
 </body>
 </html>
