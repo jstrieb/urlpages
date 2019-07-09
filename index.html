@@ -3,11 +3,12 @@
 <noscript>JavaScript is required to convert the URL into a usable web page.</noscript>
 
 <script type="text/javascript">
+// Try to get page data from the URL if possible
 if (window.location.hash) {
-    // Try to get page data from the URL if possible
-    var hash = window.location.hash.slice(1); // Get part of URL after "#"
-    var data = atob(hash); // Decode base-64 string URL
-    document.write(decodeURIComponent(data)); // Decode Uniform Resource Identifier (URI) component (previously created by encodeURIComponent) and print it to the page
+    document.write( // Print JSON.stringified values to the page
+    decodeURIComponent( // Decode Uniform Resource Identifier (URI) component (previously created by encodeURIComponent)
+    atob( // Decode base-64 string URL
+    window.location.hash.slice(1)))); // Get part of URL after "#"
 } else {
     // Otherwise redirect to the editor
     window.location.replace("./editor");
