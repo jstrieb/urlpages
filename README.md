@@ -55,8 +55,8 @@ I originally conceived this as a simple, static CodePen clone, but I felt the "p
 The following examples were made and "published" using the provided [code editor](http://jstrieb.github.io/urlpages/editor).
 
 - My personal website
-    - Code in the code editor [here](http://tinyurl.com/yxsrcuz6)
-    - "Published" version [here](http://tinyurl.com/yykrk975)
+    - Code in the code editor [here](https://tinyurl.com/y64dmsqm)
+    - "Published" version [here](https://tinyurl.com/y5mpq8zh)
 - Bookmarklet setup page
     - Code in the code editor [here](http://tinyurl.com/y6rrrlnm)
     - "Published" version [here](http://tinyurl.com/y5khpxpt)
