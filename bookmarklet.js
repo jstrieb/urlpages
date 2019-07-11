@@ -7,9 +7,9 @@
 javascript:(
 function() {
     /* URLPages URL */
-    var urlpages_url = 'https://jstrieb.github.io/urlpages/';
+    var urlpages_url = 'https://benja-johnny.github.io/urlpages/';
     /* Encode HTML code */
-    var page_data = window.btoa(JSON.stringify({
+    var page_data = LZString144.decompressFromBase64(JSON.stringify({
         "css" : null,
         "js" : null,
         "html" : document.documentElement.outerHTML}));

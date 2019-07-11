@@ -41,7 +41,7 @@ ${data["html"]}
 
 /* Return a link to view the page */
 function getViewLink(pageData) {
-    return `https://jstrieb.github.io/urlpages/#${window.btoa(pageData)}`;
+    return `https://benja-johnny.github.io/urlpages/#${LZString144.compressToBase64(pageData)}`;
 }
 
 
@@ -90,7 +90,7 @@ function initialize() {
     if (loc_hash) {
         // Get page data from the URL
         var b64  = loc_hash.slice(1); // Get the part after the #
-        var json = window.atob(b64); // Decode (base-64) string
+        var json = LZString144.decompressFromBase64(b64); // Decode (base-64) string
         var data = JSON.parse(json); // Construct JS values from string; WARNING: Older browsers might not support this
 
         // Load URL data into the textareas
@@ -109,7 +109,7 @@ function update() {
     // Encode HTML data from textareas into a linkable string
     var encoded_html = encodeURIComponent(getHTML(data));
     // Save encoded page data to the URL
-    window.location.hash = "#" + window.btoa(JSON.stringify(data));
+    window.location.hash = "#" + LZString144.compressToBase64(JSON.stringify(data));
     // Update the URL for the "Long Link to Publish" button
     document.getElementById("getLinkLink").href = getViewLink(encoded_html);
     // Update the download link
