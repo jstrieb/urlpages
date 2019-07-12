@@ -8,10 +8,9 @@
 <script type="text/javascript">
 // Try to get page data from the URL if possible
 if (window.location.hash) {
-    document.write( // Print JSON.stringified values to the page
-    decodeURIComponent( // Decode Uniform Resource Identifier (URI) component (previously created by encodeURIComponent)
-    LZString144.decompressFromBase64( // Decode base-64 string URL
-    window.location.hash.slice(1)))); // Get part of URL after "#"
+    document.write( // Print value of "html" to the page
+        LZString144.decompressFromBase64( // Decode base-64 string URL
+        window.location.hash.slice(1))); // Get part of URL after "#"
 } else {
     // Otherwise redirect to the editor
     window.location.replace("./editor");

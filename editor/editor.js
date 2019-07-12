@@ -8,6 +8,13 @@
  * Helper functions
  ***/
 
+/* Put data (object) into textareas */
+function loadTextareaData(data) {
+    document.getElementById("css").value = data["css"];
+    document.getElementById("javascript").value = data["js"];
+    document.getElementById("html").value = data["html"];
+}
+
 /* Return the data from the textareas */
 function getTextareaData() {
     return {
@@ -41,7 +48,20 @@ ${data["html"]}
 
 /* Return a link to view the page */
 function getViewLink(pageData) {
-    return `https://benja-johnny.github.io/urlpages/#${LZString144.compressToBase64(pageData)}`;
+    return `https://benja-johnny.github.io/urlpages/${pageData}`;
+}
+
+/* Convert HTML code into an object for the Editor
+   (Only works with URLs generated with the Editor) */
+function parseHTML(string_data) {
+    return {
+        "css" : string_data.slice(string_data.indexOf('<style>') + 8,
+                                  string_data.lastIndexOf('</style>') - 1),
+        "js" : string_data.slice(string_data.indexOf('<script type="text/javascript">') + 32,
+                                 string_data.lastIndexOf('</script>') - 1),
+        "html" : string_data.slice(string_data.indexOf('<body>') + 7,
+                                   string_data.lastIndexOf('</body>') - 1)
+    };
 }
 
 
@@ -51,12 +71,7 @@ function getViewLink(pageData) {
 
 /* Set the TinyUrl form hidden 'url' field to the view URL */
 function setViewUrl() {
-    // Replace each instance of certain characters in the HTML page data
-    // by one, two, three, or four escape sequences representing the UTF-8
-    // encoding of the character
-    var encoded_html = encodeURIComponent(getHTML(getTextareaData()));
-	// Update the URL for the "Short Link" button
-    document.getElementById("url").value = getViewLink(encoded_html);
+    document.getElementById("url").value = getViewLink(window.location.hash);
 }
 
 /* Set the TinyUrl form hidden 'url' field to the code URL (current URL) */
@@ -78,6 +93,17 @@ function showPasteEncodedPrompt() {
     }
 }
 
+/* Clear Editor */
+function clearEditor() {
+    window.location.hash = "#"; // Set URL
+    location.reload(false); // Reload page from cache
+}
+
+/* Reload page */
+function refreshPage() {
+    location.reload(false); // Reload page from cache
+}
+
 
 /***
  * Main procedure functions
@@ -88,32 +114,29 @@ function initialize() {
     var loc_hash = window.location.hash;
     // If there's something after # in the URL
     if (loc_hash) {
-        // Get page data from the URL
-        var b64  = loc_hash.slice(1); // Get the part after the #
-        var json = LZString144.decompressFromBase64(b64); // Decode (base-64) string
-        var data = JSON.parse(json); // Construct JS values from string; WARNING: Older browsers might not support this
-
-        // Load URL data into the textareas
-        document.getElementById("css").value = data["css"];
-        document.getElementById("javascript").value = data["js"];
-        document.getElementById("html").value = data["html"];
+        loadTextareaData( // Load URL data into the textareas
+        parseHTML( // Convert HTML string into an object
+        LZString144.decompressFromBase64( // Decode (base-64) string
+        loc_hash.slice(1) // Get part of the URL after the #
+        )));
     }
     update();
 }
 
-
 /* Run each time a key is pressed on a text box */
 function update() {
-    // Get data from textareas
-    var data = getTextareaData();
+    // Get textarea contents
+    var textarea = getTextareaData();
+    // Generate HTML code from data in textareas
+    var html_code = getHTML(textarea);
     // Encode HTML data from textareas into a linkable string
-    var encoded_html = encodeURIComponent(getHTML(data));
+    var encoded_html = LZString144.compressToBase64(html_code);
     // Save encoded page data to the URL
-    window.location.hash = "#" + LZString144.compressToBase64(JSON.stringify(data));
+    window.location.hash = "#" + encoded_html;
     // Update the URL for the "Long Link to Publish" button
-    document.getElementById("getLinkLink").href = getViewLink(encoded_html);
+    document.getElementById("getLinkLink").href = getViewLink("#" + encoded_html);
     // Update the download link
     document.getElementById("downloadLink").href = `data:text/html,${encoded_html}`
     // Update the <iframe> to display the generated page
-    window.frames[0].location.replace(`data:text/html,${encoded_html}`);
+    window.frames[0].location.replace(`data:text/html,${html_code}`);
 }

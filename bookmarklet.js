@@ -19,13 +19,10 @@ function() {
     /* After loading lz-string-1.4.4.js */
     lz_script.onload = function() {
         /* Encode HTML code */
-        var page_data = LZString144.compressToBase64(JSON.stringify({
-            "css" : null,
-            "js" : null,
-            "html" : document.documentElement.outerHTML}));
+        var page_data = LZString144.compressToBase64(document.documentElement.outerHTML);
         /* If OK was clicked, open Editor with data in new tab and switch to it */
         if (confirm('Open in Editor?')) {
-            open(`${urlpages_url}editor/#${page_data}`).focus();
+            open(`${urlpages_url}editor#${page_data}`).focus();
         /* If Cancel was clicked, open URL without Editor */
         } else {
             open(`${urlpages_url}#${page_data}`).focus();
