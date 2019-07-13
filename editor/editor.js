@@ -136,7 +136,7 @@ function update() {
     // Update the URL for the "Long Link to Publish" button
     document.getElementById("getLinkLink").href = getViewLink("#" + encoded_html);
     // Update the download link
-    document.getElementById("downloadLink").href = `data:text/html,${encoded_html}`
+    document.getElementById("downloadLink").href = `data:text/html,${html_code}`
     // Update the <iframe> to display the generated page
     window.frames[0].location.replace(`data:text/html,${html_code}`);
 }
