@@ -80,6 +80,17 @@ Currently, the bookmarklet is very much in-development (read: mostly doesn't wor
 
 The bookmarklet enables some of the most interesting and promising opportunities for URL Pages. Namely: cloning pages for archival purposes, sharing restricted information to bypass censorship, bypassing paywalls, storing entire pages in bookmarks, etc.
 
+## Related Projects
+
+Since its original creation, it has been forked many times. Please open an issue if you would like me to link back to a fork or mirror.
+- One particularly improved version is JSPen
+    - [JSPen](http://jspen.co)
+    - [Post](https://medium.com/swlh/creating-jspen-a-codepen-like-editor-that-stores-pages-in-urls-b163934f06c8) about the creation of JSPen
+
+Similar in some ways (though unrelated) to the following projects
+- [itty.bitty.site](https://github.com/alcor/itty-bitty)
+- [TinyEditor](https://github.com/umpox/TinyEditor)
+
 
 ## TODO
 
