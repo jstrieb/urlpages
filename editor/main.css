@@ -37,10 +37,16 @@ a, button {
   border: none;
 }
 
-#buttons {
+#bottomleft-buttons {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+#topright-buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 form {
