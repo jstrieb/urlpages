@@ -112,7 +112,7 @@ function update() {
     "html" : document.getElementById("html").value
   };
 
-  var html = getHTML(data);
+  var html = encodeURIComponent(getHTML(data));
 
   // Save encoded page data to the URL
   window.location.hash = "#" + b64.encode(JSON.stringify(data));
@@ -124,5 +124,5 @@ function update() {
   document.getElementById("downloadLink").href = `data:text/html,${html}`
 
   // Update the <iframe> to display the generated page
-  window.frames[0].location.replace(`data:text/html;charset=utf-8;base64,${b64.encode(html)}`);
+  window.frames[0].location.replace(`data:text/html;charset=utf-8;base64,${b64.encode(decodeURIComponent(html))}`);
 }
