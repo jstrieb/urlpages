@@ -2,11 +2,12 @@
 
 <noscript>JavaScript is required to convert the URL into a usable web page.</noscript>
 
+<script type="text/javascript" src="b64.js"></script>
 <script type="text/javascript">
 if (window.location.hash) {
   // Try to get page data from the URL if possible
   var hash = window.location.hash.slice(1);
-  var data = atob(hash);
+  var data = b64.decode(hash);
   document.write(decodeURIComponent(data));
 } else {
   // Otherwise redirect to the editor

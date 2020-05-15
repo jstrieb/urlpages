@@ -37,7 +37,7 @@ ${data["html"]}
 
 /* Return a link to view the page */
 function getViewLink(pageData) {
-  return `http://jstrieb.github.io/urlpages/#${window.btoa(pageData)}`;
+  return `http://jstrieb.github.io/urlpages/#${b64.encode(pageData)}`;
 }
 
 
@@ -91,8 +91,8 @@ function showCopyCodePrompt() {
 function initialize() {
   // Get page data from the URL and load it into the boxes
   if (window.location.hash) {
-    var b64  = window.location.hash.slice(1);
-    var json = window.atob(b64);
+    var encoded = window.location.hash.slice(1);
+    var json = b64.decode(encoded);
     var data = JSON.parse(json);
 
     document.getElementById("css").value = data["css"];
@@ -112,10 +112,10 @@ function update() {
     "html" : document.getElementById("html").value
   };
 
-  var html = encodeURIComponent(getHTML(data));
+  var html = getHTML(data);
 
   // Save encoded page data to the URL
-  window.location.hash = "#" + window.btoa(JSON.stringify(data));
+  window.location.hash = "#" + b64.encode(JSON.stringify(data));
 
   // Update the URL for the "Get Link" button
   document.getElementById("getLinkLink").href = getViewLink(html);
@@ -124,5 +124,5 @@ function update() {
   document.getElementById("downloadLink").href = `data:text/html,${html}`
 
   // Update the <iframe> to display the generated page
-  window.frames[0].location.replace(`data:text/html,${html}`);
+  window.frames[0].location.replace(`data:text/html;charset=utf-8;base64,${b64.encode(html)}`);
 }
