@@ -20,6 +20,11 @@
 Read the Hacker News Discussion [here](https://news.ycombinator.com/item?id=20317840)
 
 
+## Encrypt
+
+It is now possible to encrypt URL Pages using [Link Lock](https://github.com/jstrieb/link-lock). This static, distributed web application uses AES in the browser to encrypt the URL without transmitting any data. The encrypted link is then stored in a Link Lock URL, which, when visited, can only be unlocked with a password.
+
+
 ## How it works
 
 As hinted by its name, URL Pages works by storing the entire contents of a web page in the URL.
