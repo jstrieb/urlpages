@@ -82,6 +82,17 @@ function showCopyCodePrompt() {
 }
 
 
+/* Hide and show buttons based on checkbox state */
+function hideButtons(box) {
+  let buttons = document.querySelectorAll("button");
+  if (box.checked) {
+    buttons.forEach((button) => button.style.display = "none");
+  } else {
+    buttons.forEach((button) => button.style.display = "inline");
+  }
+}
+
+
 
 /***
  * Main procedure functions

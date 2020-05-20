@@ -52,3 +52,13 @@ a, button {
 form {
   display: inline;
 }
+
+label, input[type="checkbox"] {
+  vertical-align: middle;
+}
+
+label {
+  margin: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

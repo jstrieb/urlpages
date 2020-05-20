@@ -15,6 +15,8 @@
 </div>
 
 <div id="bottomleft-buttons">
+  <label for="hide">Hide Buttons</label>
+  <input type="checkbox" id="hide" onclick="hideButtons(this)" /><br />
   <!-- Seemingly random attributes necessary for TinyUrl to accept the request -->
   <form action="http://tinyurl.com/create.php" method="get" target="_blank">
 		<input type="hidden" id="source" name="source" value="indexpage">
@@ -25,6 +27,7 @@
   <button><a id="getLinkLink" href="" target="_blank">Open Page</a></button>
   <button onclick="showCopyCodePrompt()">Copy Code</button>
   <button><a id="downloadLink" href="" target="_blank" download="export.html">Download Code</a></button>
+  <button><a href="https://jstrieb.github.io/link-lock" target="_blank">Add a Password</a></button>
 </div>
 
 <div id="topright-buttons">
