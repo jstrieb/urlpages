@@ -41,6 +41,16 @@ a, button {
   position: absolute;
   bottom: 0;
   left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#bottomleft-buttons button {
+  display: block;
+  margin: 0;
+  width: 100%;
+  border-top: 1px solid limegreen;
 }
 
 #topright-buttons {
@@ -54,13 +64,6 @@ form {
 }
 
 label, input[type="checkbox"] {
-  vertical-align: middle;
-}
-
-label {
-  padding: 5px;
-  padding-bottom: 0;
-  padding-top: 0;
-  background: white;
-  color: black;
+  vertical-align: baseline;
+  text-align: center;
 }

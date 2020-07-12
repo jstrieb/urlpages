@@ -16,8 +16,9 @@
 </div>
 
 <div id="bottomleft-buttons">
-  <label for="hide">Hide Buttons</label>
-  <input type="checkbox" id="hide" onclick="hideButtons(this)" /><br />
+  <label for="hide">Hide Buttons
+    <input type="checkbox" id="hide" onclick="hideButtons(this)" />
+  </label>
   <!-- Seemingly random attributes necessary for TinyUrl to accept the request -->
   <form action="http://tinyurl.com/create.php" method="get" target="_blank">
 		<input type="hidden" id="source" name="source" value="indexpage">

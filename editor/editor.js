@@ -88,7 +88,7 @@ function hideButtons(box) {
   if (box.checked) {
     buttons.forEach((button) => button.style.display = "none");
   } else {
-    buttons.forEach((button) => button.style.display = "inline");
+    buttons.forEach((button) => button.style.display = "block");
   }
 }
 
