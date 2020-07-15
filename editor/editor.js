@@ -3,6 +3,8 @@
  * in the documentation
  */
 
+api = apiVersions[LATEST_API_VERSION]
+
 
 
 /***
@@ -35,13 +37,6 @@ ${data["html"]}
 }
 
 
-/* Return a link to view the page */
-function getViewLink(pageData) {
-  return `http://jstrieb.github.io/urlpages/#${b64.encode(pageData)}`;
-}
-
-
-
 /***
  * Button press functions
  ***/
@@ -58,7 +53,7 @@ function setViewUrl() {
   var html = encodeURIComponent(getHTML(data));
 
 	// Update the URL for the "Short Link" button
-  document.getElementById("url").value = getViewLink(html);
+  document.getElementById("url").value = api.getViewLink(html);
 }
 
 
@@ -129,7 +124,7 @@ function update() {
   window.location.hash = "#" + b64.encode(JSON.stringify(data));
 
   // Update the URL for the "Get Link" button
-  document.getElementById("getLinkLink").href = getViewLink(html);
+  document.getElementById("getLinkLink").href = api.getViewLink(html);
 
   // Update the download link
   document.getElementById("downloadLink").href = `data:text/html,${html}`

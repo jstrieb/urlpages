@@ -11,7 +11,14 @@ if (window.location.hash) {
   // Try to get page data from the URL if possible
   var hash = window.location.hash.slice(1);
   var data = b64.decode(hash);
-  document.write(decodeURIComponent(data));
+
+  try {
+    var urlDataObject = JSON.parse(data);
+    var api = apiVersions[urlDataObject.version];
+    document.write(api.decode(urlDataObject));
+  } catch (err) {
+    document.write(decodeURIComponent(data));
+  }
 } else {
   // Otherwise redirect to the editor
   window.location.replace("./editor");
