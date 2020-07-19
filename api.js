@@ -12,8 +12,7 @@
  * Global Variables
  ******************************************************************************/
 
-const LATEST_API_VERSION = "0.0.1";
-// const LATEST_API_VERSION = "0.2.0";
+const LATEST_API_VERSION = "0.2.0";
 
 var apiVersions = {};
 
@@ -31,10 +30,17 @@ apiVersions["0.2.0"] = {
   getViewLink: function(pageData) {
     var urlData = {
       version: this.VERSION,
+      compressed: false,
+      body: pageData,
     };
 
     const hashObject = b64.encode(JSON.stringify(urlData));
     return `http://jstrieb.github.io/urlpages/#${hashObject}`;
+  },
+
+  /* Return the page data from the object */
+  decode: function(urlData) {
+    return urlData.body;
   },
 
 }

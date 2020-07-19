@@ -50,7 +50,7 @@ function setViewUrl() {
     "html" : document.getElementById("html").value
   };
 
-  var html = encodeURIComponent(getHTML(data));
+  var html = getHTML(data);
 
 	// Update the URL for the "Short Link" button
   document.getElementById("url").value = api.getViewLink(html);
@@ -118,7 +118,7 @@ function update() {
     "html" : document.getElementById("html").value
   };
 
-  var html = encodeURIComponent(getHTML(data));
+  var html = getHTML(data);
 
   // Save encoded page data to the URL
   window.location.hash = "#" + b64.encode(JSON.stringify(data));
@@ -130,5 +130,5 @@ function update() {
   document.getElementById("downloadLink").href = `data:text/html,${html}`
 
   // Update the <iframe> to display the generated page
-  window.frames[0].location.replace(`data:text/html;charset=utf-8;base64,${b64.encode(decodeURIComponent(html))}`);
+  window.frames[0].location.replace(`data:text/html;charset=utf-8;base64,${b64.encode(html)}`);
 }
