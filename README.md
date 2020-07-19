@@ -109,10 +109,10 @@ editor](http://jstrieb.github.io/urlpages/editor).
 
 - My personal website
     - Code in the code editor [here](https://tinyurl.com/y64dmsqm)
-    - "Published" version [here](https://tinyurl.com/y5mpq8zh)
+    - "Published" version [here](https://tinyurl.com/y5w9ybk2)
 - Bookmarklet setup page
-    - Code in the code editor [here](http://tinyurl.com/y6rrrlnm)
-    - "Published" version [here](http://tinyurl.com/y5khpxpt)
+    - Code in the code editor [here](https://tinyurl.com/y5r8y4v4)
+    - "Published" version [here](https://tinyurl.com/y3lw36uh)
 - A page with embedded images (no external image host)
     - Code in the code editor
       [here](http://jstrieb.github.io/urlpages/examples/embed-code.html)
@@ -124,7 +124,7 @@ The following examples were cloned from existing pages using the bookmarklet.
 - My dad's food blog
   [here](http://jstrieb.github.io/urlpages/examples/food-blog.html)
 - The entire [editor](http://jstrieb.github.io/urlpages/editor) encoded in the
-  URL [here](https://tinyurl.com/y62y9abz)
+  URL [here](https://tinyurl.com/y6nx5347)
 - This GitHub project page
   [here](http://jstrieb.github.io/urlpages/examples/project-page.html)
 - A cloned New York Times Article
@@ -135,10 +135,11 @@ The following examples were cloned from existing pages using the bookmarklet.
 
 Currently, the bookmarklet is very much in-development (read: mostly doesn't
 work). Feel free to try it anyway by visiting the link below and following the
-instructions, or pasting the code below into a bookmark:
-- [Bookmarklet instruction page](http://tinyurl.com/y5khpxpt)
-- `javascript:window.open("http://jstrieb.github.io/urlpages/#" +
-  btoa(encodeURIComponent(document.documentElement.outerHTML)), "_blank")`
+instructions.
+- [Bookmarklet instruction page](https://tinyurl.com/y3lw36uh)
+
+Code for the bookmarklet can be found in
+[`bookmarklet.js`](https://github.com/jstrieb/urlpages/blob/master/bookmarklet.js).
 
 The bookmarklet enables some of the most interesting and promising
 opportunities for URL Pages. Namely: cloning pages for archival purposes,
