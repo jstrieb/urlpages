@@ -167,8 +167,6 @@ Similar in some ways (though unrelated) to the following projects
     - Fix relative vs absolute linking
     - Maybe try embedding images
     - Import all `src`ed scripts directly
-- Test to make sure that everything actually works for other browsers,
-  operating systems, and devices
 - Improve UI in general and editors beyond simple `textarea` (perhaps integrate
   Ace or CodeMirror)
 - Make the buttons better/more efficient (don't update `href` on every key
@@ -178,5 +176,4 @@ Similar in some ways (though unrelated) to the following projects
   [Brotli](https://en.wikipedia.org/wiki/Brotli) for shorter URLs
 - Add option to "publish" pages using base65536 as suggested
   [here](https://github.com/jstrieb/urlpages/issues/5)
-- Allow users to sign/password protect published URLs
 - Upload examples of multi-page sites (tree hierarchy)
