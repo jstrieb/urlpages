@@ -4,3 +4,6 @@
 
 # Backed up copies of old files
 *.bak
+
+# Old HTML example files
+*-old.html

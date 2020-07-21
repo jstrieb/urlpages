@@ -1,4 +1,5 @@
-(() => {
+javascript:(() => {
+  /* Generate the b64 API functions */
   var b64 = (() => {
     function generateIndexDict(a) {
       let result = {};
@@ -47,7 +48,7 @@
     }
   })();
 
-
+  /* Generate the page -> base64 API functions */
   var api = {
     VERSION: "0.2.0",
 
@@ -63,7 +64,16 @@
     },
   };
 
+  /* Replace all relative URLs with absolute ones */
+	Array.from(document.querySelectorAll("[src],[href]")).map(l => {
+		if ("src" in l) {
+			l.src = (new URL(l.src, document.baseURI)).href;
+		} else if ("href" in l) {
+			l.href = (new URL(l.href, document.baseURI)).href;
+		}
+		return l;
+	});
 
-  javascript:window.open(api.getViewLink(document.documentElement.outerHTML), "_blank");
-
+  /* Redirect to the URL Page in a new tab */
+  window.open(api.getViewLink(document.documentElement.outerHTML), "_blank");
 })();
