@@ -161,6 +161,17 @@ Similar in some ways (though unrelated) to the following projects
 - [TinyEditor](https://github.com/umpox/TinyEditor)
 
 
+## Project Status
+
+This project is actively maintained. If there are no recent commits, it means
+that everything has been running smoothly! URL Pages is designed to be 100%
+backwards-compatible, so your links will never break.
+
+Even if something were to happen to me, and I could not continue to work on
+the project, URL Pages will continue to work as long as my GitHub account is
+open and the [jstrieb.github.io](https://jstrieb.github.io) domain is online.
+
+
 ## To-do
 
 - Improve the bookmarklet -- it's mostly unusable as of right now
