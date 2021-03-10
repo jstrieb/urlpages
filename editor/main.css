@@ -14,11 +14,31 @@ html, body {
   font-size: 0px;
 }
 
-textarea {
-  resize: none;
-  width: 33.3333%;
-  height: 100%;
+#html {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33%;
+  height: 40%;
 }
+
+#css {
+  position: absolute;
+  top: 0;
+  left: 33%;
+  width: 34%;
+  height: 40%;
+}
+
+#js {
+  position: absolute;
+  top: 0;
+  left: 67%;
+  width: 33%;
+  height: 40%;
+}
+
+
 
 iframe {
   width: 100%;
