@@ -4,7 +4,7 @@
 
 ## About
 
-- Create web pages in the simple, fast editor
+- Create web pages in the simple, fast ace editor
 - Share code that others can edit and modify
 - Clone web pages with the bookmarklet (under active development)
 - "Publish" web pages instantaneously
