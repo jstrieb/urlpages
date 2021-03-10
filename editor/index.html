@@ -1,53 +1,68 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <!-- Metadata -->
+    <title>URL Pages Editor</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <script src="https://rawgithub.com/ajaxorg/ace-builds/master/src/ace.js"></script>
 
-<head>
-  <!-- Metadata -->
-  <title>URL Pages Editor</title>
-  <link rel="shortcut icon" href="../favicon.ico">
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <!-- Scripts -->
+    <script src="../b64.js" type="text/javascript" defer></script>
+    <script src="../api.js" type="text/javascript" defer></script>
+    <script src="editor.js" type="text/javascript" defer></script>
+  </head>
 
-  <!-- Styles -->
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <body id="body">
+    <!-- Top row of code entry boxes -->
+    <div id="textboxes" onkeyup="update()">
+      <div id="html">html</div>
+      <div id="css">/*css*/</div>
+      <div id="js">//js</div>
+    </div>
 
-  <!-- Scripts -->
-  <script src="../b64.js" type="text/javascript"></script>
-  <script src="../api.js" type="text/javascript"></script>
-  <script src="editor.js" type="text/javascript"></script>
-</head>
-
-<body onload="initialize()">
-  <!-- Top row of code entry boxes -->
-  <div id="textboxes" onkeyup="update()">
-    <textarea id="html" placeholder="HTML" rows="9"></textarea>
-    <textarea id="css" placeholder="CSS" rows="9"></textarea>
-    <textarea id="javascript" placeholder="JavaScript" rows="9"></textarea>
-  </div>
-
-  <!-- Bottom left buttons for publishing/export -->
-  <div id="bottomleft-buttons">
-    <label for="hide">Hide Buttons
-      <input type="checkbox" id="hide" onclick="hideButtons(this)" />
-    </label>
-    <!-- Seemingly random attributes necessary for TinyUrl to accept the
+    <!-- Bottom left buttons for publishing/export -->
+    <div id="bottomleft-buttons">
+      <label for="hide"
+        >Hide Buttons
+        <input type="checkbox" id="hide" onclick="hideButtons(this)" />
+      </label>
+      <!-- Seemingly random attributes necessary for TinyUrl to accept the
          request -->
-    <form action="https://tinyurl.com/create.php" method="get" target="_blank">
-      <input type="hidden" id="source" name="source" value="indexpage">
-      <input type="hidden" name="url" id="url" />
-      <button onclick="setCodeUrl()">Short Link to Editor</button>
-      <button onclick="setViewUrl()">Short Link to Page</button>
-    </form>
-    <button><a id="getLinkLink" href="" target="_blank">Open Page</a></button>
-    <button onclick="showCopyCodePrompt()">Copy Code</button>
-    <button><a id="downloadLink" href="" target="_blank" download="export.html">Download Code</a></button>
-    <button><a href="https://jstrieb.github.io/link-lock" target="_blank">Add a Password</a></button>
-  </div>
+      <form
+        action="https://tinyurl.com/create.php"
+        method="get"
+        target="_blank"
+      >
+        <input type="hidden" id="source" name="source" value="indexpage" />
+        <input type="hidden" name="url" id="url" />
+        <button onclick="setCodeUrl()">Short Link to Editor</button>
+        <button onclick="setViewUrl()">Short Link to Page</button>
+      </form>
+      <button><a id="getLinkLink" href="" target="_blank">Open Page</a></button>
+      <button onclick="showCopyCodePrompt()">Copy Code</button>
+      <button>
+        <a id="downloadLink" href="" target="_blank" download="export.html"
+          >Download Code</a
+        >
+      </button>
+      <button>
+        <a href="https://jstrieb.github.io/link-lock" target="_blank"
+          >Add a Password</a
+        >
+      </button>
+    </div>
 
-  <!-- Top right button to fork the repository -->
-  <div id="topright-buttons">
-    <button><a href="http://github.com/jstrieb/urlpages" target="_blank">Fork on GitHub</a></button>
-  </div>
+    <!-- Top right button to fork the repository -->
+    <div id="topright-buttons">
+      <button>
+        <a href="http://github.com/jstrieb/urlpages" target="_blank"
+          >Fork on GitHub</a
+        >
+      </button>
+    </div>
 
-  <iframe></iframe>
-</body>
-
+    <iframe></iframe>
+  </body>
 </html>

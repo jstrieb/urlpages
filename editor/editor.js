@@ -1,3 +1,16 @@
+//html
+var editorhtml = ace.edit("html");
+editorhtml.setTheme("ace/theme/monokai");
+editorhtml.session.setMode("ace/mode/html");
+//css
+var editorcss = ace.edit("css");
+editorcss.setTheme("ace/theme/monokai");
+editorcss.session.setMode("ace/mode/css");
+//js
+var editorjs = ace.edit("js");
+editorjs.setTheme("ace/theme/monokai");
+editorjs.session.setMode("ace/mode/javascript");
+
 /**
  * editor/editor.js: the main code that runs what is referred to as the "editor"
  * in the documentation
@@ -45,9 +58,9 @@ ${data["html"]}
 /* Set the TinyUrl form hidden 'url' field to the view URL */
 function setViewUrl() {
   var data = {
-    "css" : document.getElementById("css").value,
-    "js" : document.getElementById("javascript").value,
-    "html" : document.getElementById("html").value
+    "css" : editorcss.getValue(),
+    "js" : editorjs.getValue(),
+    "html" : editorhtml.getValue()
   };
 
   var html = getHTML(data);
@@ -66,9 +79,9 @@ function setCodeUrl() {
 /* Show a prompt with the HTML page data so the user can copy the code */
 function showCopyCodePrompt() {
   var data = {
-    "css" : document.getElementById("css").value,
-    "js" : document.getElementById("javascript").value,
-    "html" : document.getElementById("html").value
+    "css" : editorcss.getValue(),
+    "js" : editorjs.getValue(),
+    "html" : editorhtml.getValue()
   };
 
   var html = getHTML(data);
@@ -101,9 +114,9 @@ function initialize() {
     var json = b64.decode(encoded);
     var data = JSON.parse(json);
 
-    document.getElementById("css").value = data["css"];
-    document.getElementById("javascript").value = data["js"];
-    document.getElementById("html").value = data["html"];
+    editorcss.setValue(data["css"]);
+    editorjs.setValue(data["js"]);
+    editorhtml.setValue(data["html"]);
   }
 
   update();
@@ -113,9 +126,9 @@ function initialize() {
 /* Run each time a key is pressed on a text box */
 function update() {
   var data = {
-    "css" : document.getElementById("css").value,
-    "js" : document.getElementById("javascript").value,
-    "html" : document.getElementById("html").value
+    "css" : editorcss.getValue(),
+    "js" : editorjs.getValue(),
+    "html" : editorhtml.getValue()
   };
 
   var html = getHTML(data);
@@ -132,3 +145,5 @@ function update() {
   // Update the <iframe> to display the generated page
   window.frames[0].location.replace(`data:text/html;charset=utf-8;base64,${b64.encode(html)}`);
 }
+
+//document.getElementById("body").addEventListener("load", setTimeout(initialize(), 1000));
