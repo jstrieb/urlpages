@@ -1,27 +1,36 @@
-<!-- index.html: Referred to as the "main page" in documentation -->
+<!doctype html>
+<html>
+  <head>
+    <title>URL Pages</title>
+    <meta
+      name="description"
+      content="Create and view web pages stored entirely in the URL"
+    />
+    <link rel="shortcut icon" href="favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      JavaScript is required to convert the URL into a usable web page.
+    </noscript>
+    <script type="text/javascript" src="b64.js"></script>
+    <script type="text/javascript" src="api.js"></script>
+    <script type="text/javascript">
+      if (window.location.hash) {
+        // Try to get page data from the URL if possible
+        var hash = window.location.hash.slice(1);
+        var data = b64.decode(hash);
 
-<meta name="description" content="Create and view web pages stored entirely in the URL">
-<link rel="shortcut icon" href="favicon.ico">
-
-<noscript>JavaScript is required to convert the URL into a usable web page.</noscript>
-
-<script type="text/javascript" src="b64.js"></script>
-<script type="text/javascript" src="api.js"></script>
-<script type="text/javascript">
-if (window.location.hash) {
-  // Try to get page data from the URL if possible
-  var hash = window.location.hash.slice(1);
-  var data = b64.decode(hash);
-
-  try {
-    var urlDataObject = JSON.parse(data);
-    var api = apiVersions[urlDataObject.version];
-    document.write(api.decode(urlDataObject));
-  } catch (err) {
-    document.write(decodeURIComponent(data));
-  }
-} else {
-  // Otherwise redirect to the editor
-  window.location.replace("./editor");
-}
-</script>
+        try {
+          var urlDataObject = JSON.parse(data);
+          var api = apiVersions[urlDataObject.version];
+          document.write(api.decode(urlDataObject));
+        } catch (err) {
+          document.write(decodeURIComponent(data));
+        }
+      } else {
+        // Otherwise redirect to the editor
+        window.location.replace("./editor/");
+      }
+    </script>
+  </body>
+</html>
