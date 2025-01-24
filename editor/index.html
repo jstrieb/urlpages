@@ -28,14 +28,6 @@
     <label for="hide">Hide Buttons
       <input type="checkbox" id="hide" onclick="hideButtons(this)" />
     </label>
-    <!-- Seemingly random attributes necessary for TinyUrl to accept the
-         request -->
-    <form action="https://tinyurl.com/create.php" method="get" target="_blank">
-      <input type="hidden" id="source" name="source" value="indexpage">
-      <input type="hidden" name="url" id="url" />
-      <button onclick="setCodeUrl()">Short Link to Editor</button>
-      <button onclick="setViewUrl()">Short Link to Page</button>
-    </form>
     <button><a id="getLinkLink" href="" target="_blank">Open Page</a></button>
     <button onclick="showCopyCodePrompt()">Copy Code</button>
     <button><a id="downloadLink" href="" target="_blank" download="export.html">Download Code</a></button>

@@ -42,27 +42,6 @@ ${data["html"]}
  ***/
 
 
-/* Set the TinyUrl form hidden 'url' field to the view URL */
-function setViewUrl() {
-  var data = {
-    "css" : document.getElementById("css").value,
-    "js" : document.getElementById("javascript").value,
-    "html" : document.getElementById("html").value
-  };
-
-  var html = getHTML(data);
-
-	// Update the URL for the "Short Link" button
-  document.getElementById("url").value = api.getViewLink(html);
-}
-
-
-/* Set the TinyUrl form hidden 'url' field to the code URL */
-function setCodeUrl() {
-  document.getElementById("url").value = window.location.href;
-}
-
-
 /* Show a prompt with the HTML page data so the user can copy the code */
 function showCopyCodePrompt() {
   var data = {
