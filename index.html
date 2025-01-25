@@ -43,10 +43,13 @@
         font-family: sans-serif;
         border: 2px solid red;
         max-width: 80ch;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
       }
 
       #run {
-        border: 0;
+        border: 1px solid black;
         width: 100%;
         height: 100%;
         display: flex;
@@ -73,6 +76,7 @@
         your computer. Do not load the page below unless you trust the person
         who sent you the link.
       </p>
+      <p>Do not enter any personal information into the page below.</p>
     </div>
     <iframe id="frame"></iframe>
     <div id="run">
